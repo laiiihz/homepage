@@ -8,7 +8,7 @@
         v-show="isRootPath"
       />
     </transition>
-    <v-app :dark="darkMode" style="background-color: black">
+    <v-app :dark="darkMode" :style="darkMode?'background-color: black':''">
       <v-dialog :dark="darkMode" v-model="bookMark" width="400">
         <v-card :dark="darkMode">
           <v-card-title>
@@ -56,7 +56,7 @@
       <v-navigation-drawer
         v-model="drawer"
         temporary
-        absolute
+        fixed
         right
         :dark="darkMode"
       >
@@ -100,11 +100,12 @@
       >
       <v-app-bar
         app
-        :color="isRootPath ? 'rgba(0,0,0,0.4)' : 'primary'"
+        :color="isRootPath ? 'rgba(0,0,0,0.4)' : this.$store.state.appBarColor"
         :shrink-on-scroll="!isRootPath"
         :prominent="!isRootPath"
         class="app-bar-blur"
         dark
+        style="transition: all 0.9s"
       >
         <v-spacer></v-spacer>
         <v-btn
@@ -120,6 +121,7 @@
           <v-tabs align-with-title :dark="darkMode">
             <v-tab to="/">搜索</v-tab>
             <v-tab to="/navigation">导航</v-tab>
+            <v-tab to="/tools">工具</v-tab>
             <v-tab to="/about">关于</v-tab>
           </v-tabs>
         </template>
@@ -142,36 +144,39 @@ export default {
     this.engines = engines;
     this.darkMode = window.localStorage.getItem("darkMode") === "true";
     let engine = window.localStorage.getItem("engine");
-    if (engine == null) this.nowEngine = "baidu";
-    else this.nowEngine = engine;
+    if (engine == null) this.$store.commit("changeEngine", "baidu");
+    else this.$store.commit("changeEngine", engine);
   },
   data: () => ({
     fabOpen: false,
     bookMark: false,
-    drawer: true,
+    drawer: false,
     setNameDialog: false,
     username: "Chrome",
     darkMode: false,
-    nowEngine: "",
-    nowPrefix: "",
     engines: [],
     updateSuccess: false
   }),
   computed: {
     isRootPath: function() {
       return this.$route.path === "/";
+    },
+    nowEngine: {
+      set(value) {
+        this.$store.commit("changeEngine", value);
+        this.updateSuccessFunction();
+      },
+      get() {
+        return this.$store.state.engine;
+      }
     }
   },
   watch: {
-    darkMode: function(newValue) {
-      this.commitToStore(newValue);
-      window.localStorage.setItem("darkMode", newValue);
-      this.updateSuccessFunction();
-    },
-    nowEngine: function(newValue) {
-      window.localStorage.setItem("engine", newValue);
-      this.$store.commit("changeEngine", newValue);
-      this.updateSuccessFunction();
+    darkMode: function(newValue, oldValue) {
+      if (newValue !== oldValue && oldValue.length !== 0) {
+        this.commitToStore(newValue);
+        this.updateSuccessFunction();
+      }
     }
   },
   methods: {
@@ -218,5 +223,12 @@ export default {
 
 .username-style {
   cursor: pointer;
+}
+div::-webkit-scrollbar {
+  background: transparent;
+  width: 5px;
+}
+div::-webkit-scrollbar-thumb {
+  background: #000;
 }
 </style>

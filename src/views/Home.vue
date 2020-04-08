@@ -53,6 +53,7 @@ export default {
     engineName:{
       set(){},
       get(){
+        console.log(this.$store.state.engine)
         return this.$store.state.engine;
       },
     },
