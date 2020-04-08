@@ -30,7 +30,7 @@ const websites = [
         name:"思否",
         url:"//segmentfault.com",
         color:"#009A61",
-        icon:"https://cdn.segmentfault.com/v-5e81b20e/global/img/favicon.ico"
+        icon:""
       }
     ]
   },
@@ -158,6 +158,12 @@ const websites = [
         url: "//getbootstrap.com/",
         color:"#563D7C",
         icon:"https://getbootstrap.com/docs/4.4/assets/img/favicons/apple-touch-icon.png",
+      },
+      {
+        name:"Vuetify",
+        url:"//vuetifyjs.com/zh-Hans",
+        color:"#212121",
+        icon:"https://vuetifyjs.com/favicon.ico",
       },
     ],
   },

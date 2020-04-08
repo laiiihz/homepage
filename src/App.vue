@@ -8,7 +8,7 @@
         v-show="isRootPath"
       />
     </transition>
-    <v-app :dark="darkMode" :style="darkMode?'background-color: black':''">
+    <v-app :dark="darkMode" :style="darkMode ? 'background-color: black' : ''">
       <v-dialog :dark="darkMode" v-model="bookMark" width="400">
         <v-card :dark="darkMode">
           <v-card-title>
@@ -28,6 +28,32 @@
           <v-card-actions>
             <v-spacer></v-spacer>
             <v-btn text @click="saveUserName">保存</v-btn>
+          </v-card-actions>
+        </v-card>
+      </v-dialog>
+      <v-dialog :dark="darkMode" v-model="setBackgroundDialog" width="400">
+        <v-card>
+          <v-card-title>
+            设置背景源
+            <v-spacer></v-spacer>
+            <v-btn rounded>
+              <v-icon>mdi-plus</v-icon>
+              自定义</v-btn>
+          </v-card-title>
+          <v-list>
+            <v-list-item-group v-model="nowSource">
+              <v-list-item v-for="item in backgroundSources" :key="item.name">
+                <v-list-item-content>
+                  <v-list-item-title>
+                    {{ item.name }}
+                  </v-list-item-title>
+                </v-list-item-content>
+              </v-list-item>
+            </v-list-item-group>
+          </v-list>
+          <v-card-actions>
+            <v-spacer></v-spacer>
+            <v-btn text @click="saveBackground">保存</v-btn>
           </v-card-actions>
         </v-card>
       </v-dialog>
@@ -93,6 +119,14 @@
               ></v-select>
             </v-list-item-action>
           </v-list-item>
+          <v-list-item @click="setBackground" disabled>
+            <v-list-item-title>
+              背景源
+            </v-list-item-title>
+            <v-list-item-action>
+              bing
+            </v-list-item-action>
+          </v-list-item>
         </v-list>
       </v-navigation-drawer>
       <v-snackbar v-model="updateSuccess" bottom left color="success"
@@ -152,10 +186,22 @@ export default {
     bookMark: false,
     drawer: false,
     setNameDialog: false,
+    setBackgroundDialog: false,
     username: "Chrome",
     darkMode: false,
     engines: [],
-    updateSuccess: false
+    updateSuccess: false,
+    backgroundSources: [
+      {
+        name: "bing每日一图",
+        url: ""
+      },
+      {
+        name:"bing随机",
+        url:"",
+      }
+    ],
+    nowSource: ""
   }),
   computed: {
     isRootPath: function() {
@@ -199,7 +245,13 @@ export default {
       setTimeout(() => {
         this.updateSuccess = true;
       }, 500);
-    }
+    },
+    setBackground() {
+      this.setBackgroundDialog = true;
+    },
+    saveBackground(){
+      window.localStorage.setItem("background",this.backgroundSources[this.nowSource].name);
+    },
   }
 };
 </script>

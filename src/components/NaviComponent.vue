@@ -23,6 +23,14 @@ export default {
     item: Object
   },
   data: () => ({}),
+  computed:{
+    darkMode: {
+      set() {},
+      get() {
+        return this.$store.state.darkMode;
+      }
+    },
+  },
   methods: {
     updateAppBarColor() {
       this.$store.commit("changeAppBarColor", this.item.color);

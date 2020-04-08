@@ -1,10 +1,10 @@
 <template>
-  <v-expansion-panels :dark="darkMode" focusable hover popout multiple>
+  <v-expansion-panels :dark="darkMode" focusable hover popout>
     <v-expansion-panel  v-for="item in items" :key="item.type">
-      <v-expansion-panel-header
+      <v-expansion-panel-header ripple
               :href="'#'+item.type">
         {{ item.type }}
-      </v-expansion-panel-header>
+      </v-expansion-panel-header >
       <v-expansion-panel-content>
         <v-container>
           <v-row>
