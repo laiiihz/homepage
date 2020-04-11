@@ -8,7 +8,11 @@
         v-show="isRootPath"
       />
     </transition>
-    <v-app :dark="darkMode" :style="darkMode ? 'background-color: black' : ''">
+    <v-app
+      style="transition: background-color 0.5s"
+      :dark="darkMode"
+      :style="darkMode ? 'background-color: black' : ''"
+    >
       <v-dialog :dark="darkMode" v-model="bookMark" width="400">
         <v-card :dark="darkMode">
           <v-card-title>
@@ -38,7 +42,8 @@
             <v-spacer></v-spacer>
             <v-btn rounded>
               <v-icon>mdi-plus</v-icon>
-              自定义</v-btn>
+              自定义</v-btn
+            >
           </v-card-title>
           <v-list>
             <v-list-item-group v-model="nowSource">
@@ -197,8 +202,8 @@ export default {
         url: ""
       },
       {
-        name:"bing随机",
-        url:"",
+        name: "bing随机",
+        url: ""
       }
     ],
     nowSource: ""
@@ -249,9 +254,12 @@ export default {
     setBackground() {
       this.setBackgroundDialog = true;
     },
-    saveBackground(){
-      window.localStorage.setItem("background",this.backgroundSources[this.nowSource].name);
-    },
+    saveBackground() {
+      window.localStorage.setItem(
+        "background",
+        this.backgroundSources[this.nowSource].name
+      );
+    }
   }
 };
 </script>

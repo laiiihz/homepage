@@ -15,6 +15,12 @@ const websites = [
         icon: "https://b-gold-cdn.xitu.io/favicons/v2/apple-touch-icon.png"
       },
       {
+        name: "V2EX",
+        color: "#AAB0C6",
+        url: "//www.v2ex.com",
+        icon: "https://www.v2ex.com/static/img/icon_rayps_64.png"
+      },
+      {
         name: "Github Trending",
         url: "//github.com/trending",
         color: "#24292E",
@@ -27,10 +33,16 @@ const websites = [
         icon: "https://www.landiannews.com/favicon_N.ico"
       },
       {
-        name:"思否",
-        url:"//segmentfault.com",
-        color:"#009A61",
-        icon:""
+        name: "思否",
+        url: "//segmentfault.com",
+        color: "#009A61",
+        icon: ""
+      },
+      {
+        name: "少数派",
+        url: "//sspai.com",
+        color: "#232222",
+        icon: "https://cdn.sspai.com/sspai/assets/img/favicon/icon.ico"
       }
     ]
   },
@@ -113,12 +125,17 @@ const websites = [
         icon: "https://cn.vuejs.org/images/icons/favicon-32x32.png"
       },
       {
-        name:"React",
-        url:"//zh-hans.reactjs.org/",
-        color:"#282C34",
-        icon:"https://zh-hans.reactjs.org/favicon.ico"
+        name: "React",
+        url: "//zh-hans.reactjs.org/",
+        color: "#282C34",
+        icon: "https://zh-hans.reactjs.org/favicon.ico"
       },
-
+      {
+        name: "kotlin",
+        url: "//www.kotlincn.net/docs/reference/",
+        color: "#27282C",
+        icon: "https://www.kotlincn.net/assets/images/favicon.ico"
+      }
     ]
   },
   {
@@ -133,63 +150,75 @@ const websites = [
       {
         name: "异次元",
         url: "//www.iplaysoft.com",
-        color: "#2A98E9",
-        icon: ""
+        color: "#2A98E9"
+      },
+      {
+        name: "小众软件",
+        url: "//www.appinn.com",
+        color: "#007A9C"
       }
     ]
   },
   {
-    type:"前端",
-    sites:[
+    type: "前端",
+    sites: [
       {
-        name:"Element",
-        url:"//element.eleme.cn/",
-        color:"#409EFF",
-        icon:"https://element.eleme.cn/favicon.ico",
+        name: "Element",
+        url: "//element.eleme.cn/",
+        color: "#409EFF",
+        icon: "https://element.eleme.cn/favicon.ico"
       },
       {
-        name:"Ant design",
-        url:"https://ant.design/index-cn",
-        color:"#0170FE",
-        icon:"https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg",
+        name: "Ant design",
+        url: "https://ant.design/index-cn",
+        color: "#0170FE",
+        icon:
+          "https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg"
       },
       {
-        name:"bootstrap",
+        name: "bootstrap",
         url: "//getbootstrap.com/",
-        color:"#563D7C",
-        icon:"https://getbootstrap.com/docs/4.4/assets/img/favicons/apple-touch-icon.png",
+        color: "#563D7C",
+        icon:
+          "https://getbootstrap.com/docs/4.4/assets/img/favicons/apple-touch-icon.png"
       },
       {
-        name:"Vuetify",
-        url:"//vuetifyjs.com/zh-Hans",
-        color:"#212121",
-        icon:"https://vuetifyjs.com/favicon.ico",
-      },
-    ],
+        name: "Vuetify",
+        url: "//vuetifyjs.com/zh-Hans",
+        color: "#212121",
+        icon: "https://vuetifyjs.com/favicon.ico"
+      }
+    ]
   },
   {
-    type:"设计",
-    sites:[
+    type: "设计",
+    sites: [
       {
-        name:"unDraw",
-        url:"//undraw.co",
-        color:"#6C63FF",
-        icon:"https://undraw.co/favicon.ico",
+        name: "unDraw",
+        url: "//undraw.co",
+        color: "#6C63FF",
+        icon: "https://undraw.co/favicon.ico"
       },
       {
-        name:"figma",
-        url:"//www.figma.com/",
-        color:"#5D5D5D",
-        icon:"https://static.figma.com/app/icon/1/favicon.png",
+        name: "figma",
+        url: "//www.figma.com/",
+        color: "#5D5D5D",
+        icon: "https://static.figma.com/app/icon/1/favicon.png"
       },
       {
-        name:"Rive",
-        url:"//rive.app/",
-        color:"#444444",
-        icon:"https://rive.app/favicon-32x32.png",
+        name: "Rive",
+        url: "//rive.app/",
+        color: "#444444",
+        icon: "https://rive.app/favicon-32x32.png"
       },
-    ],
-  },
+      {
+        name:"Material",
+        url:"//material.io",
+        color:"#212121",
+        icon:"https://material.io/favicon.ico",
+      },
+    ]
+  }
 ];
 
 export default websites;

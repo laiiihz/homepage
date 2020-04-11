@@ -10,6 +10,7 @@ export default new Vuex.Store({
     darkMode: false,
     engine: "baidu",
     enginePrefix: "//baidu.com/s?wd=",
+    engineSrc:"https://www.baidu.com/img/baidu_resultlogo@2.png",
     appBarColor:"rgba(25,145,76,255)",
   },
   mutations: {
@@ -26,6 +27,7 @@ export default new Vuex.Store({
       engines.forEach(item => {
         if (item.name === name) {
           state.enginePrefix = item.prefix;
+          state.engineSrc = item.src;
           window.localStorage.setItem("enginePrefix", item.prefix);
         }
       });

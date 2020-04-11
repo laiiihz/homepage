@@ -1,7 +1,9 @@
 <template>
   <v-container class="fill-height" fluid>
-    <v-row align="center" justify="center">
+    <v-row justify="center" align="center" >
       <v-col cols="4">
+        <v-img :src="engineImg" max-height="75" contain></v-img>
+        <div style="height: 20px"></div>
         <v-text-field
           solo
           label="search"
@@ -11,7 +13,7 @@
           @keydown="onSearch"
           :dark="darkMode"
         >
-          <template  #append>
+          <template #append>
             {{ engineName }}
           </template>
         </v-text-field>
@@ -25,7 +27,6 @@
 
 export default {
   name: "Home",
-  mounted() {},
   data: () => ({
     searchValue: "",
     keyValue: false,
@@ -50,13 +51,18 @@ export default {
         return this.$store.state.darkMode;
       }
     },
-    engineName:{
-      set(){},
-      get(){
-        console.log(this.$store.state.engine)
+    engineName: {
+      set() {},
+      get() {
         return this.$store.state.engine;
-      },
+      }
     },
+    engineImg: {
+      set() {},
+      get() {
+        return this.$store.state.engineSrc;
+      }
+    }
   }
 };
 </script>

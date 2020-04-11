@@ -10,7 +10,9 @@
       <v-card-title>
         {{ item.name }}
         <v-spacer></v-spacer>
-        <v-img :src="item.icon" contain height="30" width="30"></v-img>
+        <keep-alive>
+          <v-img :src="item.icon" contain height="30" width="30"></v-img>
+        </keep-alive>
       </v-card-title>
     </v-card>
   </v-hover>
