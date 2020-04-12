@@ -9,6 +9,7 @@ import ToolsMain from "../views/tools/ToolsMain";
 import UriSafe from "../views/tools/UriSafe";
 import UUID from "../views/tools/UUID";
 import SHA from "../views/tools/SHA";
+import Qrcode from "../views/tools/Qrcode";
 
 Vue.use(VueRouter);
 
@@ -37,7 +38,8 @@ const routes = [
       { path: "base64", name: "Base64", component: Base64 },
       { path: "URISafe", name: "URISafe", component: UriSafe },
       { path: "UUID", name: "UUID", component:UUID },
-      { path: "SHA", name: "SHA", component:SHA }
+      { path: "SHA", name: "SHA", component:SHA },
+      { path: "Qrcode", name: "Qrcode", component:Qrcode }
     ]
   }
 ];
